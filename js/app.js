@@ -142,11 +142,10 @@ const displayAiDetails = (aiElement) => {
               </div>
             <div class="col">
                <div class="card border-0">
-               
-    <div class="position-absolute top-0 end-0 pt-2 pe-1">
-    <button type="button" class="btn btn-danger">${aiElement.accuracy.score ? aiElement.accuracy.score * 100 : '0'}% accuracy</button>
-    </div>
-    
+               <div class="position-absolute top-0 end-0 pt-2 pe-1">
+               <button type="button" class="btn btn-danger" style="display: ${aiElement.accuracy && aiElement.accuracy.score ? 'block' : 'none'}">${aiElement.accuracy && aiElement.accuracy.score ? aiElement.accuracy.score * 100 : '0'}% accuracy</button>
+             </div>
+             
     <img src="${aiElement.image_link?.[0] ?? ''}" class="card-img-top" alt="">
     <div class="card-body">
       <h5 class="card-title">${aiElement.input_output_examples?.[0]?.input ?? ''}</h5>
