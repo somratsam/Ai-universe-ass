@@ -105,7 +105,6 @@ const displayAiDetails = (aiElement) => {
                <div class="card">
                  <div class="card-body">
                  <h5 class="card-title">${aiElement.description ?? ''}</h5>
-
                    <div class="d-flex justify-content-between pt-3">
   <div class=" text-success">
     <h6>
@@ -138,8 +137,7 @@ const displayAiDetails = (aiElement) => {
     </h6>
   </div>
 </div>
-
-              </div>
+ </div>
               <div class=" container d-flex justify-content-between">
               <div><p><strong>Features</strong></p>
               <ul>
@@ -155,7 +153,6 @@ const displayAiDetails = (aiElement) => {
               <li><h6><small>${aiElement.integrations && aiElement.integrations[1] ? aiElement.integrations[1] : 'No Data Found'}</small></h6></li>
               <li><h6><small>${aiElement.integrations && aiElement.integrations[2] ? aiElement.integrations[2] : 'No Data Found'}</small></h6></li>
             </ul>
-            
               </div>
               </div>
               </div>
@@ -165,7 +162,6 @@ const displayAiDetails = (aiElement) => {
                <div class="position-absolute top-0 end-0 pt-2 pe-1">
                <button type="button" class="btn btn-danger" style="display: ${aiElement.accuracy && aiElement.accuracy.score ? 'block' : 'none'}">${aiElement.accuracy && aiElement.accuracy.score ? aiElement.accuracy.score * 100 : '0'}% accuracy</button>
              </div>
-             
     <img src="${aiElement.image_link?.[0] ?? ''}" class="card-img-top" alt="">
     <div class="card-body">
       <h5 class="card-title">${aiElement.input_output_examples?.[0]?.input ?? ''}</h5>
