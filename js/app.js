@@ -126,7 +126,7 @@ const displayAiDetails = (aiElement) => {
     <h6>
       <ul>
         <small>
-          ${aiElement.pricing && aiElement.pricing['2'] ? aiElement.pricing['2'].price : 'Free of cost'}
+          ${aiElement.pricing && aiElement.pricing['2'] ? aiElement.pricing['2'].price : 'Service Not Available'}
           ${aiElement.pricing && aiElement.pricing['3'] ? aiElement.pricing['3'].plan : ''}
         </small>
       </ul>
