@@ -25,6 +25,9 @@ const displayAiCard = (aiElement) => {
   // display ai main cards
   const aiDiv = document.createElement("div");
   aiDiv.classList.add("col");
+
+  // creating innerhtml
+
   aiDiv.innerHTML = `
       <div class="card h-100">
         <img src="${aiElement.image}" class="card-img-top h-100" alt="...">
@@ -54,7 +57,7 @@ const displayAiCard = (aiElement) => {
 const displayAiUniverse = (aiUniverse) => {
   const aiContainer = document.getElementById("ai-container");
   aiContainer.innerHTML = "";
-
+// display 6 card by default
   const limitedAiUniverse = aiUniverse.slice(0, 6);
   limitedAiUniverse.forEach((aiElement) => {
     const aiCard = displayAiCard(aiElement);
@@ -78,7 +81,7 @@ const displayAiUniverse = (aiUniverse) => {
     });
   }
 };
-
+//  fetch single data
 const loadAiDetails = async id => {
   const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
   const res = await fetch(url)
@@ -86,20 +89,11 @@ const loadAiDetails = async id => {
   displayAiDetails(data.data);
 }
 const displayAiDetails = (aiElement) => {
-  console.log(aiElement);  
+  // console.log(aiElement)
+    
 
 
-
-  const sortBtn = document.getElementById('sort-btn');
-  sortBtn.addEventListener('click' , function() {
-
-
-
-console.log(aiElement);
-    })
-  
-
-
+    // modal content
 
   const modalTitle = document.getElementById('aiDetailModalLabel');
 
