@@ -34,10 +34,10 @@ const displayAiCard = (aiElement) => {
         <div class="card-body">
           <h5 class="card-title"><strong>Features</strong></h5>
           <p class="card-text">
-            <ol>
+            <ol class=" list-unstyled">
             <li>${aiElement.features[0] ?? ''}</li>
             <li>${aiElement.features[1] ?? ''}</li>
-            <li>${aiElement.features[2] ?? 'No data found'}</li>
+            <li>${aiElement.features[2] ?? ''}</li>
             </ol>
           </p>
           <hr>
@@ -91,14 +91,10 @@ const loadAiDetails = async id => {
 const displayAiDetails = (aiElement) => {
   // console.log(aiElement)
     
-
-
     // modal content
 
   const modalTitle = document.getElementById('aiDetailModalLabel');
-
   const aiDetails = document.getElementById('ai-details');
-
 
   aiDetails.innerHTML = `
  <div class="col text-body-emphasis">
@@ -140,18 +136,18 @@ const displayAiDetails = (aiElement) => {
  </div>
               <div class=" container d-flex justify-content-between">
               <div><p><strong>Features</strong></p>
-              <ul>
-              <li><h6><small>${aiElement.features['1'] && aiElement.features['1'].feature_name ? aiElement.features['1'].feature_name : 'No Data Found'}</small></h6></li>
-              <li><h6><small>${aiElement.features['2'] && aiElement.features['2'].feature_name ? aiElement.features['2'].feature_name : 'No Data Found'}</small></h6></li>
-              <li><h6><small>${aiElement.features['3'] && aiElement.features['3'].feature_name ? aiElement.features['3'].feature_name : 'No Data Found'}</small></h6></li>
+              <ul class=" list-unstyled">
+              <li><h6><small>${aiElement.features['1'] && aiElement.features['1'].feature_name ? aiElement.features['1'].feature_name : ''}</small></h6></li>
+              <li><h6><small>${aiElement.features['2'] && aiElement.features['2'].feature_name ? aiElement.features['2'].feature_name : ''}</small></h6></li>
+              <li><h6><small>${aiElement.features['3'] && aiElement.features['3'].feature_name ? aiElement.features['3'].feature_name : ''}</small></h6></li>
               
               </ul>
               </div>
               <div><p><strong>Integrations</strong></p>
-              <ul>
-              <li><h6><small>${aiElement.integrations && aiElement.integrations[0] ? aiElement.integrations[0] : 'No Data Found'}</small></h6></li>
-              <li><h6><small>${aiElement.integrations && aiElement.integrations[1] ? aiElement.integrations[1] : 'No Data Found'}</small></h6></li>
-              <li><h6><small>${aiElement.integrations && aiElement.integrations[2] ? aiElement.integrations[2] : 'No Data Found'}</small></h6></li>
+              <ul class=" list-unstyled">
+              <li><h6><small>${aiElement.integrations && aiElement.integrations[0] ? aiElement.integrations[0] : 'Data Not Found'}</small></h6></li>
+              <li><h6><small>${aiElement.integrations && aiElement.integrations[1] ? aiElement.integrations[1] : ''}</small></h6></li>
+              <li><h6><small>${aiElement.integrations && aiElement.integrations[2] ? aiElement.integrations[2] : ''}</small></h6></li>
             </ul>
               </div>
               </div>
