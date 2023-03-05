@@ -6,7 +6,23 @@ const loadAiUniverse = async () => {
 };
 
 const displayAiCard = (aiElement) => {
-  console.log(aiElement);
+  // console.log(aiElement);
+
+
+// display sort
+
+  const sortBtn = document.getElementById('sort-btn');
+  sortBtn.addEventListener('click' , function() {
+
+    let cardArr = Array.from(aiElement);
+    cardArr.sort(function(a, b) {
+      let dateA = new Date(a.aiElement.published_in);
+      let dateB = new Date(b.aiElement.published_in);
+      return dateB - dateA;
+    })
+  
+    })
+  // display ai main cards
   const aiDiv = document.createElement("div");
   aiDiv.classList.add("col");
   aiDiv.innerHTML = `
@@ -18,13 +34,9 @@ const displayAiCard = (aiElement) => {
             <ol>
             <li>${aiElement.features[0] ?? ''}</li>
             <li>${aiElement.features[1] ?? ''}</li>
-            <li>${aiElement.features[2] ?? ''}</li>
-
-
+            <li>${aiElement.features[2] ?? 'No data found'}</li>
             </ol>
           </p>
-         
-
           <hr>
           <div class="d-flex align-items-center justify-content-between">
          <div>
@@ -74,7 +86,21 @@ const loadAiDetails = async id => {
   displayAiDetails(data.data);
 }
 const displayAiDetails = (aiElement) => {
-  console.log(aiElement);
+  console.log(aiElement);  
+
+
+
+  const sortBtn = document.getElementById('sort-btn');
+  sortBtn.addEventListener('click' , function() {
+
+
+
+console.log(aiElement);
+    })
+  
+
+
+
   const modalTitle = document.getElementById('aiDetailModalLabel');
 
   const aiDetails = document.getElementById('ai-details');
@@ -91,7 +117,7 @@ const displayAiDetails = (aiElement) => {
     <h6>
       <ul>
         <small>
-          ${aiElement.pricing && aiElement.pricing['0'] ? aiElement.pricing['0'].price : ''}
+          ${aiElement.pricing && aiElement.pricing['0'] ? aiElement.pricing['0'].price : 'Free of cost'}
           ${aiElement.pricing && aiElement.pricing['1'] ? aiElement.pricing['1'].plan : ''}
         </small>
       </ul>
@@ -101,7 +127,7 @@ const displayAiDetails = (aiElement) => {
     <h6>
       <ul>
         <small>
-          ${aiElement.pricing && aiElement.pricing['1'] ? aiElement.pricing['1'].price : ''}
+          ${aiElement.pricing && aiElement.pricing['1'] ? aiElement.pricing['1'].price : 'Free of cost'}
           ${aiElement.pricing && aiElement.pricing['2'] ? aiElement.pricing['2'].plan : ''}
         </small>
       </ul>
@@ -111,7 +137,7 @@ const displayAiDetails = (aiElement) => {
     <h6>
       <ul>
         <small>
-          ${aiElement.pricing && aiElement.pricing['2'] ? aiElement.pricing['2'].price : ''}
+          ${aiElement.pricing && aiElement.pricing['2'] ? aiElement.pricing['2'].price : 'Free of cost'}
           ${aiElement.pricing && aiElement.pricing['3'] ? aiElement.pricing['3'].plan : ''}
         </small>
       </ul>
@@ -123,17 +149,17 @@ const displayAiDetails = (aiElement) => {
               <div class=" container d-flex justify-content-between">
               <div><p><strong>Features</strong></p>
               <ul>
-              <li><h6><small>${aiElement.features['1'] && aiElement.features['1'].feature_name ? aiElement.features['1'].feature_name : ''}</small></h6></li>
-              <li><h6><small>${aiElement.features['2'] && aiElement.features['2'].feature_name ? aiElement.features['2'].feature_name : ''}</small></h6></li>
-              <li><h6><small>${aiElement.features['3'] && aiElement.features['3'].feature_name ? aiElement.features['3'].feature_name : ''}</small></h6></li>
+              <li><h6><small>${aiElement.features['1'] && aiElement.features['1'].feature_name ? aiElement.features['1'].feature_name : 'No Data Found'}</small></h6></li>
+              <li><h6><small>${aiElement.features['2'] && aiElement.features['2'].feature_name ? aiElement.features['2'].feature_name : 'No Data Found'}</small></h6></li>
+              <li><h6><small>${aiElement.features['3'] && aiElement.features['3'].feature_name ? aiElement.features['3'].feature_name : 'No Data Found'}</small></h6></li>
               
               </ul>
               </div>
               <div><p><strong>Integrations</strong></p>
               <ul>
-              <li><h6><small>${aiElement.integrations && aiElement.integrations[0] ? aiElement.integrations[0] : ''}</small></h6></li>
-              <li><h6><small>${aiElement.integrations && aiElement.integrations[1] ? aiElement.integrations[1] : ''}</small></h6></li>
-              <li><h6><small>${aiElement.integrations && aiElement.integrations[2] ? aiElement.integrations[2] : ''}</small></h6></li>
+              <li><h6><small>${aiElement.integrations && aiElement.integrations[0] ? aiElement.integrations[0] : 'No Data Found'}</small></h6></li>
+              <li><h6><small>${aiElement.integrations && aiElement.integrations[1] ? aiElement.integrations[1] : 'No Data Found'}</small></h6></li>
+              <li><h6><small>${aiElement.integrations && aiElement.integrations[2] ? aiElement.integrations[2] : 'No Data Found'}</small></h6></li>
             </ul>
             
               </div>
@@ -149,13 +175,15 @@ const displayAiDetails = (aiElement) => {
     <img src="${aiElement.image_link?.[0] ?? ''}" class="card-img-top" alt="">
     <div class="card-body">
       <h5 class="card-title">${aiElement.input_output_examples?.[0]?.input ?? ''}</h5>
-      <p class="card-text">${aiElement.input_output_examples?.[1]?.input ?? ''}</p>
+      <p class="card-text">${aiElement.input_output_examples?.[1]?.input ?? 'No! Not Yet! Take a break!!!'}</p>
     </div>
 </div>
 </div>
 
     `
 }
+
+
 
 
 loadAiUniverse();
