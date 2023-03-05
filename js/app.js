@@ -26,7 +26,7 @@ const displayAiCard = (aiElement) => {
   const aiDiv = document.createElement("div");
   aiDiv.classList.add("col");
 
-  // creating innerhtml
+  // creating innerHtml for all cards
 
   aiDiv.innerHTML = `
       <div class="card h-100">
